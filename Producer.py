@@ -42,10 +42,10 @@ class Producer():
 
 
     def on_send_success(self, event):
-         logging.info(f"Messages sucefull sended: {event}")
+         logging.info(f"Messages successful sended: {event}")
 
     def on_send_error(self, event):
-        logging.error(f"Erro no envio das mensagens: {event}")
+        logging.error(f"Error when try to send messages: {event}")
 
 
 producer = Producer(bootstrap_servers="localhost:29092", topic="youtube", video_id="5qap5aO4i9A")

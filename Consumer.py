@@ -68,5 +68,9 @@ class Consumer():
         else:
             os.makedirs(f"{os.getcwd()}\\datalake\\bronze\\{self.channel}")
 
-consumer = Consumer("lofi-hiphop","youtube",bootstrap_server="localhost:29092", topic="youtube", auto_offset_reset="earliest")
+# consumer = Consumer("lofi-hiphop","youtube",bootstrap_server="localhost:29092", topic="youtube", auto_offset_reset="earliest")
+# consumer.consume_messages()
+
+
+consumer = Consumer("cerol","youtube",bootstrap_server="localhost:29092", topic="youtube", auto_offset_reset="earliest")
 consumer.consume_messages()

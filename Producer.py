@@ -22,11 +22,10 @@ class Producer():
             while self.chat.is_alive():
                 for c in self.chat.get().items:
                     # print(c.json())
-                    future = self.producer.send("youtube",json.dumps(c.json()).encode('utf-8'))\
+                    self.producer.send("youtube",json.dumps(c.json()).encode('utf-8'))\
                                                                     .add_callback(self.on_send_success)\
                                                                         .add_errback(self.on_send_error)
 
-                assert future.succeeded
             self.producer.flush()
             logging.info("Process finished...")
 
@@ -48,7 +47,10 @@ class Producer():
         logging.error(f"Error when try to send messages: {event}")
 
 
-producer = Producer(bootstrap_servers="localhost:29092", topic="youtube", video_id="5qap5aO4i9A")
+# producer = Producer(bootstrap_servers="localhost:29092", topic="youtube", video_id="5qap5aO4i9A")
+# producer.get_messages()
+
+producer = Producer(bootstrap_servers="localhost:29092", topic="youtube", video_id="6xBRqFbJqwQ")
 producer.get_messages()
 
 print("Finish")

@@ -21,7 +21,6 @@ class Consumer():
 
 
     def consume_messages(self):
-        # df = pd.DataFrame(columns=["datetime", "name", "message"])
 
         self.create_folder()
         counter = 0
@@ -61,7 +60,7 @@ class Consumer():
                 json.dump(msg, outfile, indent=6)
                 outfile.close
             
-            log.info("JSON Saved")
+            log.info("JSON saved")
 
     def create_folder(self):
         if os.path.exists(f"{os.getcwd()}\\datalake\\bronze\\{self.channel}") :

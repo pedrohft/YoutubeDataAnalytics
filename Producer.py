@@ -51,4 +51,4 @@ class Producer():
 producer = Producer(bootstrap_servers="localhost:29092", topic="youtube", video_id="5qap5aO4i9A")
 producer.get_messages()
 
-print("FINALIZOU")
+print("Finish")
